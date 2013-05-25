@@ -97,7 +97,7 @@ header h2 {
 
 #content-wrapper {
   border-top: solid 1px #fff;
-  padding-top: 30px;
+  padding-top: 10px;
 }
 
 #main-content {
@@ -477,3 +477,13 @@ footer a:hover {
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 @media only screen and (max-width: 479px) {}
+
+
+.navlink {
+    font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    padding-right: 22px;
+    color: #474747;
+}

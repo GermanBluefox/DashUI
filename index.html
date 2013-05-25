@@ -19,26 +19,45 @@
   <body>
     <header>
       <div class="inner">
-        <h1>DashUI</h1>
-        <h2>Template-basiertes HTML5 Framework für Smarthome Bedienoberflächen</h2>
+
+          <h1>DashUI</h1>
+
+        <h2>Template-basiertes HTML5 Framework für Smarthome Visualisierung</h2>
         <a href="https://github.com/hobbyquaker/DashUI" class="button"><small>View project on</small>GitHub</a>
       </div>
+
     </header>
 
     <div id="content-wrapper">
+
       <div class="inner clearfix">
+
         <section id="main-content">
-        
-          <p>DashUI ist eine webbasierte Visualisierung für die HomeMatic CCU, die dem Anwender völlige Freiheit bei der Gestaltung der Oberflächen und der Bedienelemente gibt. Bedienelemente (sogenannte "Widgets") können per Drag and Drop auf beliebigen Ansichten ("Views") platziert werden, außerdem können die CSS Eigenschaften sowie frei definierbare Attribute von Views und Widgets konfiguriert werden.<p>
+        <div style="height: 48px; display:block;">
+              <a class="navlink" href="#quickstart">Schnellstart</a>
+              <a class="navlink" href="#concept">Konzepte</a>
+              <a class="navlink" href="#widgets">Widgets</a>
+             <a class="navlink" href="#credits">Credits</a>
+          </div>
+          <p>DashUI ist eine webbasierte Visualisierung für die HomeMatic CCU, die dem Anwender uneingeschränkte Gestaltungsfreiheit lässt. Bedienelemente (sogenannte "Widgets"), die in einer leicht verständlichen Template-Sprache definiert werden, können per Drag and Drop auf beliebigen Ansichten ("Views") platziert werden, außerdem können die CSS Eigenschaften sowie frei definierbare Attribute von Views und Widgets konfiguriert werden.<p>
+
+            <p>
+            <a href="screenshots/beispiel-view.png" target="_blank"><img src="screenshots/beispiel-view.png" height="140px"/></a>
+            <a href="screenshots/integration-graphen.png" target="_blank"><img src="screenshots/integration-graphen.png" height="140px"/></a>
+            <a href="screenshots/temperatur-anzeige.png" target="_blank"><img src="screenshots/temperatur-anzeige.png" height="140px"/></a>
+        </p>
 
             <p>DashUI richtet sich an den versierten Homematic-Anwender/Entwickler, ein Grundverständnis von HTML/CSS sowie Homematic-Datenpunkten sollte vorhanden sein (oder erworben werden).</p>
-<p>DashUI bietet quasi 3 Ebenen an auf denen der Anwender seine Oberflächen gestalten/erweitern/customizen kann: 
-Wer möchte muss sich nicht mit den Widget-Templates auseinandersetzen sondern kann sich darauf beschränken vorhandene Widgets zu konfigurieren und im wesentlichen alles mit der Maus zusammenzuklicken. 
-Wer eigene Widgets bauen möchte benötigt HTML/CSS Kenntnisse, wer komplexe Widgets mit eigenen Interaktionen/Animationen/... erstellen will muss sich darüberhinaus mit jQuery, CanJS und den Konzepten des DashUI vertraut machen.</p>
-                    
-          <h1>Schnellstart</h1>
 
-          <h1>Dokumentation</h1>
+            <p>DashUI ist freie Software und unter einer MIT-Lizenz veröffentlicht. <a href="#credits">Weitere Hinweise zur Lizenzierung und mitgelieferter Softwarekomponenten</a></p>
+
+            <p>DashUI bietet quasi 3 Ebenen an auf denen Oberflächen gestaltet werden können:
+Wer möchte muss sich nicht mit den Widget-Templates auseinandersetzen sondern kann sich darauf beschränken vorhandene Widgets zu konfigurieren und im wesentlichen alles mit der Maus zusammenzuklicken. 
+Wer eigene Widgets bauen möchte benötigt HTML/CSS Kenntnisse, wer komplexe Widgets mit eigener Logik, Interaktionen, Animationen u.Ä. erstellen will muss sich darüberhinaus mit jQuery, CanJS und den Konzepten des DashUI vertraut machen.</p>
+                    
+          <a name="quickstart"><h1>Schnellstart</h1></a>
+
+
 <h2>Installation auf der CCU</h2>
 
 <p>Es wird ein Zugang zur CCU via FTP oder SCP benötigt.</p>
@@ -47,14 +66,11 @@ Wer eigene Widgets bauen möchte benötigt HTML/CSS Kenntnisse, wer komplexe Wid
 <li>Addon "WebAPI" installieren: den Ordner "webapi" auf diesem Zip-File <a href="https://github.com/hobbyquaker/WebAPI/archive/master.zip">https://github.com/hobbyquaker/WebAPI/archive/master.zip</a> nach /www/addons/ kopieren)</li>
 <li>Den Ordner "dashui" aus diesem Zip-File <a href="https://github.com/hobbyquaker/DashUI/archive/master.zip">https://github.com/hobbyquaker/DashUI/archive/master.zip</a> ebenfalls nach /www/addons/ kopieren</li>
 <li>auf der CCU leeren Ordner "dashui" in /usr/local/addons/ erstellen (hier werden Konfigurationen gespeichert)</li>
-<li>http://ccu/addons/dashui/?edit aufrufen</li>
-</ul><p>Mit einer kleinen Änderung ist es auch möglich DashUI von einem anderen Webserver und nicht von der CCU aufzurufen. Allerdings ist die WebAPI auf der CCU unverzichtbar. Bei Interesse bitte im Forum fragen.</p>
-
-<h2>Dokumentation</h2>
-
-<h3>Schnellstart</h3>
+</ul>
+<h2>Bedienung</h2>
 
 <ul>
+<li>Mit einem modernen Browser (Chrome, Safari, Firefox) http://ccu/addons/dashui/?edit aufrufen</li>
 <li>Nun können Widgets und Views hinzugefügt und konfiguriert werden</li>
 <li>Widgets werden automatisch aktualisiert sobald der Editor geschlossen wird</li>
 <li>Man muss manuell über die Buttons "auf CCU speichern" und "von CCU laden" im Reiter Homematic die Konfiguration auf der CCU sichern und laden. Automatisch gesichert wird nur im "localstorage" des Browsers.</li>
@@ -94,68 +110,8 @@ Alle weiteren Parameter sind hier dokumentiert: <a href="http://www.jqplot.com/d
 
 <p>Das Javascript Object in dem alle Views und Widgets gespeichert werden kann über http://homematic/addons/dashui/views.html bearbeitet werden.</p>
 
-<h2>Todo</h2>
-
-<ul>
-<li>Config-File, Editor und Engine sauber trennen</li>
-<li>Mehr Widgets! ;-)</li>
-<li>Erweiterte Template-Attribute: Doku, Kompatibilität, ...</li>
-<li>Navigations-Effekte (Beim Wechseln der View konfigurierbare Animationen)</li>
-</ul><h2>Changelog</h2>
-
-<h3>0.7</h3>
-
-<ul>
-<li>Container implementiert, Views können nun in Widgets und jQuery UI Dialogen dargestellet werden</li>
-<li>Fehler behoben - Buttons waren nicht mehr editierbar</li>
-<li>Dialog-Widgets mit zusätzlichen Attributen ausgestattet</li>
-<li>container und view id präfix, link disable im edit-mode</li>
-<li>neues Widget-Set: "fancyswitch"</li>
-<li>Widget-Definitionen und Bindings in eigene Files ausgelagert</li>
-<li>toggle Binding und neue Widgets</li>
-<li>diverse Fehler behoben, Pfade gekürzt (100-Zeichen-Limit...)</li>
-</ul><h3>0.6</h3>
-
-<ul>
-<li>Sind keine lokalen Views vorhanden wird nun automatisch versucht die Views von der CCU zu laden</li>
-<li>Während des Ladevorgangs wird div#loader eingeblendet</li>
-<li>Widget-Select wird nun aktualisiert wenn Widgets gelöscht werden</li>
-<li>Diverse Fehler beim duplizieren von Views behoben</li>
-<li>Beim Ändern von Widget-Attributen werden Widgets nun neu gerendert, es ist kein Reload mehr notwendig</li>
-<li>View-Select ist jetzt alphabetisch sortiert</li>
-<li>Instanzen und Variablen für externe Kommandos werden nicht mehr automatisch angelegt und können entfernt werden</li>
-<li>Widget "mfd-icon Shutter/Dimmer + jqui Dialog" neue Attribute autoclose und modal</li>
-<li>Widget "basic - Red Number" Zahl sitzt nun sauber in der Mitte</li>
-<li>Widget "jqui Button Link" und "jqui Button Link _blank" fehlendes Attribut ergänzt</li>
-</ul><h3>0.5</h3>
-
-<ul>
-<li>externe Steuerung über automatisch angelegte Systemvariablen, bisherige Befehle: alert, changeView, reload, popup</li>
-<li>Widget jqui Radio ValueList hinzugefügt</li>
-<li>Widget jqui Select ValueList hinzugefügt</li>
-<li>diverse Fehler behoben</li>
-<li>Widget jqui Input Datetime ausgearbeitet</li>
-</ul><h3>0.4</h3>
-
-<ul>
-<li>Views können nun unterschiedliche jQuery UI Themes zugewiesen werden, 3 Themes sind bisher mitgeliefert</li>
-<li>Ab sofort kann als Attribut hm_id neben der id auch eine Adresse in der Form BidCos-RF.EEQ0012345:1.LEVEL bzw ein Variablen- oder Programmname angegeben werden</li>
-<li>Über http://ccu/addons/dashui/reset.html kann der Cache komplett geleert werden</li>
-<li>diverse Fehler beim Selektieren von Widgets und Wechseln der View behoben</li>
-<li>Views können nun gelöscht und umbenannt werden</li>
-<li>Views werden nun erst beim erstmaligen Aufruf gerendert (merzt auch jqPlot Probleme aus)</li>
-<li>Views und Widget können nun CSS-Klassen zugewiesen werden</li>
-<li>Widget jqui-input und jqui-input-set-button mit weiteren Attributen ausgestattet</li>
-<li>Widget mfd-icon Shutter angepasst</li>
-<li>Widget basic - rednumber: Zeigt Ganzzahlwerte an, verschwindet bei Wert 0 (iOS-Like...)</li>
-<li>mfd-icons werden nun vollständig mitgeliefert</li>
-</ul><h3>0.3</h3>
-
-<ul>
-<li>Erstes Öffentliches Release</li>
+<a name="credits"><h1>Credits</h1></a>
 </ul><h2>In DashUI verwendete Software</h2>
-
-<p>alle verwendeten Softwarekomponenten stehen (unter anderem) unter einer MIT-Lizenz zur Verfügung.</p>
 
 <ul>
 <li>jQuery <a href="http://jquery.com/">http://jquery.com/</a>
@@ -174,7 +130,9 @@ Alle weiteren Parameter sind hier dokumentiert: <a href="http://www.jqplot.com/d
 </li>
 <li>jqPlot <a href="http://www.jqplot.com/">http://www.jqplot.com/</a>
 </li>
-</ul><p>CC-Lizensierte Icons aus dem KNX-User-Forum <a href="http://knx-user-forum.de">http://knx-user-forum.de</a> <a href="mailto:mfd.gfx@gmail.com">mfd.gfx@gmail.com</a> User: mfd</p>
+    <li>CC-Lizensierte Icons aus dem  <a href="http://knx-user-forum.de">KNX-User-Forum</a> <a href="mailto:mfd.gfx@gmail.com">mfd.gfx@gmail.com</a> User: mfd</li>
+
+</ul>
 
 <h2>Copyright, Lizenz, Bedingungen</h2>
 
@@ -200,18 +158,38 @@ SOFTWARE ODER SONSTIGER VERWENDUNG DER SOFTWARE ENTSTANDEN.</p>
 <p>HomeMatic und das HomeMatic Logo sind eingetragene Warenzeichen der eQ-3 AG</p>
         </section>
 
+
+
         <aside id="sidebar">
+
+
           <a href="https://github.com/hobbyquaker/DashUI/zipball/master" class="button">
             <small>Download</small>
             .zip file
           </a>
-          <!--<a href="https://github.com/hobbyquaker/DashUI/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>-->
-          <p class="">Bugreports, Support, Wünsche, Kritik über das <a href="http://homematic-forum.de/forum/viewforum.php?f=48">HomeMatic-Forum</a> </p>
+            <p>Aktuelle Version: 0.7.8
+                <br/><a target="_blank" href="https://github.com/hobbyquaker/DashUI/blob/master/README.md">Changelog & Roadmap</a>
+            </p>
 
-          <p class="repo-owner"><a href="https://github.com/hobbyquaker/DashUI">DashUI</a> is maintained by <a href="https://github.com/hobbyquaker">hobbyquaker</a>.</p>
+
+            <!--<a href="https://github.com/hobbyquaker/DashUI/tarball/master" class="button">
+              <small>Download</small>
+              .tar.gz file
+            </a>-->
+          <p class="">Bugreports, Support, Wünsche, Kritik über das <a href="http://homematic-forum.de/forum/viewforum.php?f=48">HomeMatic-Forum</a> </p>
+            <p class="">copyright (c) 2013 <a href="https://github.com/hobbyquaker">hobbyquaker</a></p>
+            <span style="display:block; width: 100%; border-bottom: 1px solid #275da1; margin-bottom:1em"></span>
+<p style="font-weight: bold">verwandte Projekte</p>
+            <ul>
+                <li><a target="_blank" href="">jqHomematic</a></li>
+                <li><a target="_blank" href="">WebAPI</a></li>
+                <li><a target="_blank" href="">HQ WebUI</a></li>
+                <li><a target="_blank" href="">CUxD-Highcharts</a></li>
+                <li><a target="_blank" href="">homematic-hue</a></li>
+            </ul>
+
+
+            <span style="display:block; width: 100%; border-bottom: 1px solid #275da1; margin-bottom:1em"></span>
 
           <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.</p>
         </aside>
