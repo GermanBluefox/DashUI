@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -35,80 +35,151 @@
         <section id="main-content">
         <div style="height: 48px; display:block;">
               <a class="navlink" href="#quickstart">Schnellstart</a>
-              <a class="navlink" href="#concept">Konzepte</a>
-              <a class="navlink" href="#widgets">Widgets</a>
-             <a class="navlink" href="#credits">Credits</a>
+            <a class="navlink" href="#concept">Konzepte</a>
+            <a class="navlink" href="#widgets">Widgets</a>
+            <a class="navlink" href="#faq">FAQ</a>
+            <a class="navlink" href="#dev">Entwicklung</a>
+            <a class="navlink" href="#credits">Credits</a>
           </div>
-          <p>DashUI ist eine webbasierte Visualisierung für die HomeMatic CCU, die dem Anwender uneingeschränkte Gestaltungsfreiheit lässt. Bedienelemente (sogenannte "Widgets"), die in einer leicht verständlichen Template-Sprache definiert werden, können per Drag and Drop auf beliebigen Ansichten ("Views") platziert werden, außerdem können die CSS Eigenschaften sowie frei definierbare Attribute von Views und Widgets konfiguriert werden.<p>
+          <p>DashUI ist eine webbasierte Visualisierung für die HomeMatic CCU mit uneingeschränkter Gestaltungsfreiheit. Bedienelemente (sogenannte "Widgets"), die in einer leicht verständlichen Template-Sprache definiert werden, können frei auf beliebigen Ansichten ("Views") platziert werden, außerdem können die Style-Eigenschaften sowie frei definierbare Attribute von Views und Widgets konfiguriert werden.<p>
 
             <p>
             <a href="screenshots/beispiel-view.png" target="_blank"><img src="screenshots/beispiel-view.png" height="140px"/></a>
             <a href="screenshots/integration-graphen.png" target="_blank"><img src="screenshots/integration-graphen.png" height="140px"/></a>
             <a href="screenshots/temperatur-anzeige.png" target="_blank"><img src="screenshots/temperatur-anzeige.png" height="140px"/></a>
         </p>
-
             <p>DashUI richtet sich an den versierten Homematic-Anwender/Entwickler, ein Grundverständnis von HTML/CSS sowie Homematic-Datenpunkten sollte vorhanden sein (oder erworben werden).</p>
+            <p>Die Gestaltung von Oberflächen kann auf verschieden Ebenen innerhalb von DashUI stattfinden:
+            <ul>
+                <li>Wer möchte muss sich nicht mit komplizierter Technik auseinandersetzen, sondern kann sich darauf
+                    beschränken vorhandene Widgets zu konfigurieren und im wesentlichen alles mit der Maus
+                    zusammenzuklicken.</li>
+                <li>Durch das einbinden eigener Stylesheet-Dateien und die verwendung eigener Icons werden völlig individuelle Look&Feels möglich</li>
+                <li>Mit fortgeschritteneren HTML/CSS Kenntnissen können eigene Widgets definiert werden (Es kommt die
+                Template-Sprache "EJS" zum Einsatz).</li>
+                <li>wer komplexe Widgets mit eigener Logik, Interaktionen, Animationen u.Ä. erstellen will muss sich darüberhinaus mit jQuery, CanJS und den Konzepten des DashUI vertraut machen.</li>
+            </ul>
 
             <p>DashUI ist freie Software und unter einer MIT-Lizenz veröffentlicht. <a href="#credits">Weitere Hinweise zur Lizenzierung und mitgelieferter Softwarekomponenten</a></p>
 
-            <p>DashUI bietet quasi 3 Ebenen an auf denen Oberflächen gestaltet werden können:
-Wer möchte muss sich nicht mit den Widget-Templates auseinandersetzen sondern kann sich darauf beschränken vorhandene Widgets zu konfigurieren und im wesentlichen alles mit der Maus zusammenzuklicken. 
-Wer eigene Widgets bauen möchte benötigt HTML/CSS Kenntnisse, wer komplexe Widgets mit eigener Logik, Interaktionen, Animationen u.Ä. erstellen will muss sich darüberhinaus mit jQuery, CanJS und den Konzepten des DashUI vertraut machen.</p>
-                    
+
           <a name="quickstart"><h1>Schnellstart</h1></a>
 
 
-<h2>Installation auf der CCU</h2>
 
-<p>Es wird ein Zugang zur CCU via FTP oder SCP benötigt.</p>
 
 <ul>
-<li>Addon "WebAPI" installieren: den Ordner "webapi" auf diesem Zip-File <a href="https://github.com/hobbyquaker/WebAPI/archive/master.zip">https://github.com/hobbyquaker/WebAPI/archive/master.zip</a> nach /www/addons/ kopieren)</li>
-<li>Den Ordner "dashui" aus diesem Zip-File <a href="https://github.com/hobbyquaker/DashUI/archive/master.zip">https://github.com/hobbyquaker/DashUI/archive/master.zip</a> ebenfalls nach /www/addons/ kopieren</li>
-<li>auf der CCU leeren Ordner "dashui" in /usr/local/addons/ erstellen (hier werden Konfigurationen gespeichert)</li>
+    <li>Es wird ein Zugang zur CCU via FTP oder SCP benötigt.</li>
+    <li>Addon "WebAPI" installieren: den Ordner "webapi" auf diesem Zip-File <a href="https://github.com/hobbyquaker/WebAPI/archive/master.zip">https://github.com/hobbyquaker/WebAPI/archive/master.zip</a> nach /www/addons/ kopieren.</li>
+    <li>Den Ordner "dashui" aus diesem Zip-File <a href="https://github.com/hobbyquaker/DashUI/archive/master.zip">https://github.com/hobbyquaker/DashUI/archive/master.zip</a> ebenfalls nach /www/addons/ kopieren</li>
+    <li>auf der CCU leeren Ordner "dashui" in /usr/local/addons/ erstellen (hier werden Konfigurationen gespeichert)</li>
+    <li>Mit einem modernen Browser (Chrome, Safari, Firefox) http://ccu/addons/dashui/?edit aufrufen</li>
+    <li>Nun können Widgets und Views hinzugefügt und konfiguriert werden, hier ein einfaches Beispiel um eine Temperatur anzuzeigen:
+        <ul>
+            <li>Auf den Reiter "Widgets" wechseln</li>
+            <li>Im Widget-Set "basic" das Widget "hm_val - Number auswählen</li>
+            <li>"Add Widget" klicken. Es erscheint das gestrichelt umrandete Widget und im Reiter Widgets werden weitere Eingabefelder ("Widget-Attributes") sichtbar</li>
+            <li>Im Eingabefeld "hm_id" die Adresse (z.B. BidCos-RF.EEQ0001234:1.TEMPERATURE) oder ID eines Homematic-Temperature-Datenpunktes eintragen</li>
+            <li>In das Eingabefeld "html_append" °C eintragen. Weitere Konfigurationsmöglichkeiten siehe <a target="_blank" href="screenshots/temperatur-anzeige.png">dieser Screenshot</a>.</li>
+        </ul>
+    </li>
+    <li>Widgets werden automatisch aktualisiert sobald der Editor geschlossen wird</li>
+    <li>Man muss manuell über die Buttons "save views on ccu" im Reiter Homematic die Konfiguration auf der CCU sichern. Automatisch gesichert wird nur im "LocalStorage" des Browsers.</li>
 </ul>
-<h2>Bedienung</h2>
 
-<ul>
-<li>Mit einem modernen Browser (Chrome, Safari, Firefox) http://ccu/addons/dashui/?edit aufrufen</li>
-<li>Nun können Widgets und Views hinzugefügt und konfiguriert werden</li>
-<li>Widgets werden automatisch aktualisiert sobald der Editor geschlossen wird</li>
-<li>Man muss manuell über die Buttons "auf CCU speichern" und "von CCU laden" im Reiter Homematic die Konfiguration auf der CCU sichern und laden. Automatisch gesichert wird nur im "localstorage" des Browsers.</li>
-<li>Views können über http://ccu/addons/dashui/#NameDerView direkt aufgerufen werden</li>
-</ul><h3>Widgets</h3>
 
-<h4>Homematic-Attribute</h4>
+            <a name="concept"><h1>Konzepte</h1></a>
+            <h2>Grundlegendes</h2>
+             <h2>Views</h2>
+            <h2>Widgets</h2>
+                <h3>Widget-Sets</h3>
+<p>Die Widgets sind in verschiedenen Sets gruppiert:
+<dl>        <dt>basic</dt><dd>Einfache Widgets ohne vorgegebenes Styling</dd>
+            <dt>fancyswitch</dt><dd>Eine Sammlung von hübsch gestalteten Ein/Aus-Schaltern</dd>
+            <dt>jqui</dt><dd>Widgets im jQuery UI style</dd>
+            <dt>jqui-mfd</dt><dd>Widgets im jQuery UI style und mit vordefinierten Icons aus dem mfd-icon-set</dd>
+            <dt>dev</dt><dd>Widgets für Entwickler und zur Fehlerdiagnose</dd>
+        </dl>
+            </p>
 
-<p>Das Attribut "hm_id" muss bei jedem Widget das Homematic Werte anzeigt oder die Homematic steuert angegeben werden. Zum nachschauen dieser IDs bietet sich das CCU-Addon HQ WebUI an. Vorsicht, falsche IDs können die Stabilität der CCU beeinträchtigen. Hinweis: Die ID 65535 dient als Platzhalter und wird bei der Kommunikation mit der CCU ausgespart.</p>
+<h3>Widget-Typen</h3>
+<p>Jedes Widget ist einem der folgenden Typen zugeordnet:
+<dl>
+   <dt>static</dt><dd>Anzeige von statischen Inhalten (z.B. ein Text, ein Bild, ein iFrame, ...)</dd>
+            <dt>hm_val</dt><dd>Anzeige von Homematic-Werten</dd>
+            <dt>hm_ctrl</dt><dd>Homematic steuern</dd>
+            <dt>navigation</dt><dd>Widgets zur Navigation zwischen den Views</dd>
+            <dt>container</dt><dd>Widgets die ganze Views innerhalb einer anderen View anzeigen</dd>
+</dl></p>
 
-<ul>
-<li>hm_id ist die ID eines Datenpunkts (STATE, LEVEL, TEMPERATURE, ...).</li>
-<li>hm_wid (kann weggelassen werden) ist die ID des zugehörigen WORKING Datenpunkts, sinnvoll bei Dimmern und Rollläden um springende Slider während Aktivität der Aktoren zu verhindern.</li>
-</ul><p>Anstelle von IDs können auch Datenpunkt-Bezeichner wie z.B. "BidCos-RF.EEQ00012345:1.LEVEL" oder bei Programmen und Systemvariablen deren Namen verwendet werden.</p>
+            <h2>externe Steuerung</h2>
+            DashUI legt auf Eurer CCU für jede Instanz - d.h. für jeden Browser mit dem Ihr DashUI aufruft - 2 Variablen an, dashui_instanz_cmd und dashui_instanz_data. Damit ist es möglich DashUI mit der CCU zu steuern. Man kann so z.B: einen bestimmten Browser veranlassen die View zu wechseln indem man in die Variable ..._data den Namen einer View und in die Variable ..._cmd "changeView" eingibt (per Programm, Script, ...).
+            Sinnvoll ist das z.B. um den Browser eines bestimmten Tablets dazu zu veranlassen automatisch auf die View mit der Haustür-Webcam umzuschalten wenn die Türklingel betätigt wird
 
-<h4>basic - HTML</h4>
 
-<p>Zeigt beliebigen HTML Code an. Hiermit können z.B. auch Bilder oder Iframes angezeigt eingebunden werden.</p>
 
-<h4>basic - Value List</h4>
 
-<p>Zeigt eine Homematic-Variable vom Typ Werteliste an.
-Der Parameter valuelist muss als ; (Semikolon) getrennte Liste angegeben werden</p>
+            <a name="widgets"><h1>Widgets</h1></a>
+            <h2>Allgemeine Attribute</h2>
+            <h3>html_prepend und html_append</h3>
+            <p>Diese bei vielen Widgets vorhandenen Attribute dienen dazu beliebigen HTML-Quellcode vor und hinter dem eigentlich Widget-Inhalt zu platzieren.</p>
+            <h3>hm_id und hm_wid</h3>
+            <p>Das Attribut "hm_id" muss bei jedem Widget vom Typ "hm_val" und "hm_ctrl" angegeben werden, also allen Widgets die mit der Homematic CCU interagieren. Zum nachschauen dieser IDs bietet sich das CCU-Addon HQ WebUI an. Vorsicht, falsche IDs können die Stabilität der CCU beeinträchtigen. Hinweis: Die ID 65535 dient als Platzhalter und wird bei der Kommunikation mit der CCU ausgespart.</p>
 
-<h4>jqplot - MeterGauge Widget</h4>
+            <ul>
+                <li>hm_id ist die ID eines Datenpunkts (STATE, LEVEL, TEMPERATURE, ...).</li>
+                <li>hm_wid (kann weggelassen werden) ist die ID des zugehörigen WORKING Datenpunkts, sinnvoll bei Dimmern und Rollläden um springende Slider während Aktivität der Aktoren zu verhindern.</li>
+            </ul><p>Anstelle von IDs können auch Datenpunkt-Bezeichner wie z.B. "BidCos-RF.EEQ00012345:1.LEVEL" oder bei Programmen und Systemvariablen deren Namen verwendet werden.</p>
 
-<p>Zeigt Homematic Zahlenwerte (Variablen, Datenpunkte) als Tachometer an.
-Alle weiteren Parameter sind hier dokumentiert: <a href="http://www.jqplot.com/docs/files/plugins/jqplot-meterGaugeRenderer-js.html" target="_blank">jqPlot Docs meterGauge</a></p>
 
-<p>Die Parameter ticks, intervals, intervalColors können als ; (Semikolon) getrennte Liste angegeben werden</p>
+            <h2>Widget-Set "basic"</h2>
+            <h3>static - HTML</h3>
 
-<h3>Navigation</h3>
+            <p>Zeigt beliebigen HTML Code an. Hiermit können z.B. auch Bilder oder Iframes angezeigt eingebunden werden.</p>
 
-<ul>
-<li>Zur Navigation können normale Links oder Link-Widgets mit href="#NameDerView" genutzt werden.</li>
-</ul><h3>Rohdaten bearbeiten</h3>
+            <h3>hm_val - Value List</h3>
 
-<p>Das Javascript Object in dem alle Views und Widgets gespeichert werden kann über http://homematic/addons/dashui/views.html bearbeitet werden.</p>
+            <p>Zeigt eine Homematic-Variable vom Typ Werteliste an.
+                Der Parameter valuelist muss als ; (Semikolon) getrennte Liste angegeben werden</p>
+
+            <h2>Widget-Set "jqplot"</h2>
+            <h3>hm_val - MeterGauge</h4>
+
+            <p>Zeigt Homematic Zahlenwerte (Variablen, Datenpunkte) als Tachometer an.
+                Alle weiteren Parameter sind hier dokumentiert: <a href="http://www.jqplot.com/docs/files/plugins/jqplot-meterGaugeRenderer-js.html" target="_blank">jqPlot Docs meterGauge</a></p>
+
+            <p>Die Parameter ticks, intervals, intervalColors können als ; (Semikolon) getrennte Liste angegeben werden</p>
+
+                <a name="faq"><h1>FAQ</h1></a>
+<dl>
+    <dt>wie kann man ein Hintergrundbild einbinden?</dt>
+    <dd>Das geht (sowohl für Views selbst als auch für Widgets) über die CSS Eigenschaft "Background". Du kannst Dir die Bilder z.B. auf der CCU unter /www/addons/dashui/user/ ablegen und es dann mit <code>url(user/bild.png) no-repeat</code> als Widget-Hintergrund anzeigen lassen.</dd>
+
+    <dt>kann man einem Widget ein eigenes Bild geben? wenn ja, wie?</dt>
+    <dd>Entweder wie oben beschrieben über die CSS-Background-Eigenschaft oder als HTML <img> Element (dafür ist die Widget-Eigenschaft html_prepend z.B. gedacht). So kannst z.B. mit dem Widget "basic - hm_val Number" einfach eine Temperaturanzeige mit Thermometer-Icon realisieren:
+<ul><li>
+    factor: 1
+</li>
+<li>
+    digits: 1
+</li>
+<li>
+    html_prepend: <code>&lt;img src="user/thermometer_icon.png" width="32px"/&gt;</code>
+</li>
+<li>html_append: °C</li></ul>
+
+
+
+
+        </dd>
+
+</dl>
+
+<a name="dev"><h1>Entwicklung</h1></a>
+<h2>Widget-Templates</h2>
+
+                <h2>Bindings</h2>
+
 
 <a name="credits"><h1>Credits</h1></a>
 </ul><h2>In DashUI verwendete Software</h2>
@@ -179,7 +250,20 @@ SOFTWARE ODER SONSTIGER VERWENDUNG DER SOFTWARE ENTSTANDEN.</p>
           <p class="">Bugreports, Support, Wünsche, Kritik über das <a target="_blank" href="http://homematic-forum.de/forum/viewforum.php?f=48">HomeMatic-Forum</a> </p>
             <p class="">copyright (c) 2013 <a href="https://github.com/hobbyquaker">hobbyquaker</a></p>
             <span style="display:block; width: 100%; border-bottom: 1px solid #275da1; margin-bottom:1em"></span>
-<p style="font-weight: bold">verwandte Projekte</p>
+            <span style="font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; font-size:16px">nützliches zur UI Gestaltung</span>
+            <ul>
+
+                <li><a target="_blank" href="http://subtlepatterns.com/">Subtle Patterns</a></li>
+                <li><a target="_blank" href="http://de.floorplanner.com/">Floor Planner</a></li>
+                <li><a target="_blank" href="http://www.g200kg.com/en/software/knobman.html">KnobMan</a></li>
+                <li><a target="_blank" href="http://jqueryui.com/themeroller/">jQuery UI Theme Roller</a></li>
+                <li><a target="_blank" href="http://colorschemedesigner.com/">Color Scheme Designer</a></li>
+                <li><a target="_blank" href="http://www.iconfinder.com/">Icon Finder</a></li>
+                <li><a target="_blank" href="http://www.colorzilla.com/gradient-editor/">CSS Gradient Editor</a></li>
+                <li><a target="_blank" href="http://playground.webflow.com/">Webflow CSS3 Playground</a></li>
+            </ul>
+            <span style="display:block; width: 100%; border-bottom: 1px solid #275da1; margin-bottom:1em"></span>
+            <span style="font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; font-size:16px">verwandte Projekte</span>
             <ul>
                 <li><a target="_blank" href="">jqHomematic</a></li>
                 <li><a target="_blank" href="">WebAPI</a></li>
@@ -196,6 +280,6 @@ SOFTWARE ODER SONSTIGER VERWENDUNG DER SOFTWARE ENTSTANDEN.</p>
       </div>
     </div>
 
-  
+
   </body>
 </html>
