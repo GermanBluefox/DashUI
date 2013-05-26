@@ -370,6 +370,8 @@ footer a:hover {
 * html .clearfix {height: 1%;}
 .clearfix {display: block;}
 
+.subnav {display:none;}
+
 /* #Media Queries
 ================================================== */
 
@@ -407,6 +409,9 @@ footer a:hover {
 
 /* All Mobile Sizes (devices and browser) */
 @media only screen and (max-width: 767px) {
+    .subnav {
+        display:inline;
+    }
   .inner {
     width: 93%;
   }
