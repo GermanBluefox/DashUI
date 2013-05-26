@@ -328,6 +328,7 @@ blockquote {
 ul li {
   list-style: disc inside;
   padding-left: 20px;
+    padding-bottom: 8px;
 }
 
 ol li {
@@ -485,5 +486,13 @@ footer a:hover {
     font-weight: bold;
     margin-bottom: 8px;
     padding-right: 22px;
-    color: #474747;
+    color: #2879d0;
+}
+dl { padding-bottom: 12px; }
+dl dt {
+    padding-bottom: 0px;
+}
+dl dd {
+    padding-left: 12px;
+    padding-bottom: 4px;
 }

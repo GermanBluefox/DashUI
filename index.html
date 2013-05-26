@@ -51,29 +51,30 @@
         <section id="main-content">
         <div style="height: 48px; display:block;">
               <a class="navlink" href="#quickstart">Schnellstart</a>
-            <a class="navlink" href="#concept">Konzepte</a>
             <a class="navlink" href="#faq">FAQ</a>
+            <a class="navlink" href="#concept">Konzepte</a>
             <a class="navlink" href="#dev">Entwicklung</a>
             <a class="navlink" href="#credits">Credits</a>
           </div>
-          <p>DashUI ist eine webbasierte Visualisierung für die HomeMatic CCU mit uneingeschränkter Gestaltungsfreiheit. Bedienelemente (sogenannte "Widgets"), die in einer leicht verständlichen Template-Sprache definiert werden, können frei auf beliebigen Ansichten ("Views") platziert werden, außerdem können die Style-Eigenschaften sowie frei definierbare Attribute von Views und Widgets konfiguriert werden.<p>
+          <p>DashUI ist eine webbasierte Visualisierung für die HomeMatic CCU mit uneingeschränkter Gestaltungsfreiheit. Anzeige- und Bedienelemente (sogenannte "Widgets") können frei auf beliebigen Ansichten ("Views") platziert werden, außerdem können die Style-Eigenschaften sowie frei definierbare Attribute von Views und Widgets konfiguriert werden.<p>
 
             <p>
             <a href="screenshots/beispiel-view.png" target="_blank"><img src="screenshots/beispiel-view.png" height="140px"/></a>
             <a href="screenshots/integration-graphen.png" target="_blank"><img src="screenshots/integration-graphen.png" height="140px"/></a>
             <a href="screenshots/temperatur-anzeige.png" target="_blank"><img src="screenshots/temperatur-anzeige.png" height="140px"/></a>
         </p>
-            <p>DashUI richtet sich an den versierten Homematic-Anwender/Entwickler, ein Grundverständnis von HTML/CSS sowie Homematic-Datenpunkten sollte vorhanden sein (oder erworben werden).</p>
             <p>Die Gestaltung von Oberflächen kann auf verschieden Ebenen innerhalb von DashUI stattfinden:
             <ul>
                 <li>Wer möchte muss sich nicht mit komplizierter Technik auseinandersetzen, sondern kann sich darauf
                     beschränken vorhandene Widgets zu konfigurieren und im wesentlichen alles mit der Maus
                     zusammenzuklicken.</li>
-                <li>Durch das Einbinden eigener Stylesheet-Dateien und die Verwendung eigener Bilder und Icons werden völlig individuelle Look&Feels möglich</li>
+                <li>Durch den Einsatz von Stylesheet ("<a href="http://de.wikipedia.org/wiki/Cascading_Style_Sheets" target="_blank">CSS</a>") Angaben und durch die Verwendung eigener Bilder und Icons werden vollkommen individuelle Designs möglich.</li>
                 <li>Mit fortgeschritteneren HTML/CSS Kenntnissen können eigene Widgets definiert werden (Es kommt die
-                Template-Sprache "EJS" zum Einsatz).</li>
+                Template-Sprache "<a href="http://embeddedjs.com/" target="_blank">EJS</a>" zum Einsatz).</li>
                 <li>wer komplexe Widgets mit eigener Logik, Interaktionen, Animationen u.Ä. erstellen will muss sich darüberhinaus mit jQuery, CanJS und den Konzepten des DashUI vertraut machen.</li>
             </ul>
+
+            <p>DashUI baut auf <a href="http://www.jquery.com" target="_blank">jQuery</a>, dem <a href="https://github.com/hobbyquaker/jqHomematic" target="_blank">jqHomematic Plugin</a> und <a href="http://canjs.com" target="_blank">CanJS</a> auf und macht sich das <a href="http://www.jqueryui.com" target="_blank">jQuery UI Framework</a> zu nutze. Darüberhinaus sind diverse kleinere jQuery Plugins und Javascript-Bibliotheken für verschiedene UI-Elemente integriert.</p>
 
             <p>DashUI ist freie Software und unter einer MIT-Lizenz veröffentlicht. <a href="#credits">Weitere Hinweise zur Lizenzierung und mitgelieferter Softwarekomponenten</a></p>
 
@@ -101,6 +102,41 @@
     <li>Widgets werden automatisch aktualisiert sobald der Editor geschlossen wird</li>
     <li>Man muss manuell über die Buttons "save views on ccu" im Reiter Homematic die Konfiguration auf der CCU sichern. Automatisch gesichert wird nur im "LocalStorage" des Browsers.</li>
 </ul>
+
+
+
+
+            <a name="faq"><h1>FAQ</h1></a>
+            <dl>
+                <dt>Wo finde ich Infos zu den Widget-Attributen</dt>
+                <dd>Die einzelnen Widgets sind <a href="https://github.com/hobbyquaker/DashUI/wiki/" target="_blank">im Wiki</a> dokumentiert</dd>
+
+               <dt>Wo kann ich mehr über die Funktion der verschiedenen CSS-Attribute erfahren?</dt>
+               <dd>Eine gute Informationsquelle ist <a href="http://de.selfhtml.org/css/eigenschaften/" target="_blank">das "Selfhtml"</a></dd>
+
+                <dt>wie kann man ein Hintergrundbild einbinden?</dt>
+                <dd>Das geht (sowohl für Views selbst als auch für Widgets) über die CSS Eigenschaft "Background". Du kannst Dir die Bilder z.B. auf der CCU unter /www/addons/dashui/user/ ablegen und es dann mit <code>url(user/bild.png) no-repeat</code> als Widget-Hintergrund anzeigen lassen.</dd>
+
+                <dt>kann man einem Widget ein eigenes Bild geben? wenn ja, wie?</dt>
+                <dd>Entweder wie oben beschrieben über die CSS-Background-Eigenschaft oder als HTML <img> Element (dafür ist die Widget-Eigenschaft html_prepend z.B. gedacht). So kannst z.B. mit dem Widget "basic - hm_val Number" einfach eine Temperaturanzeige mit Thermometer-Icon realisieren:
+                    <ul><li>
+                        factor: 1
+                    </li>
+                        <li>
+                            digits: 1
+                        </li>
+                        <li>
+                            html_prepend: <code>&lt;img src="user/thermometer_icon.png" width="32px"/&gt;</code>
+                        </li>
+                        <li>html_append: °C</li></ul>
+
+
+
+
+                </dd>
+
+            </dl>
+
 
 
 
@@ -153,32 +189,6 @@
 
 
 
-
-
-                <a name="faq"><h1>FAQ</h1></a>
-<dl>
-    <dt>wie kann man ein Hintergrundbild einbinden?</dt>
-    <dd>Das geht (sowohl für Views selbst als auch für Widgets) über die CSS Eigenschaft "Background". Du kannst Dir die Bilder z.B. auf der CCU unter /www/addons/dashui/user/ ablegen und es dann mit <code>url(user/bild.png) no-repeat</code> als Widget-Hintergrund anzeigen lassen.</dd>
-
-    <dt>kann man einem Widget ein eigenes Bild geben? wenn ja, wie?</dt>
-    <dd>Entweder wie oben beschrieben über die CSS-Background-Eigenschaft oder als HTML <img> Element (dafür ist die Widget-Eigenschaft html_prepend z.B. gedacht). So kannst z.B. mit dem Widget "basic - hm_val Number" einfach eine Temperaturanzeige mit Thermometer-Icon realisieren:
-<ul><li>
-    factor: 1
-</li>
-<li>
-    digits: 1
-</li>
-<li>
-    html_prepend: <code>&lt;img src="user/thermometer_icon.png" width="32px"/&gt;</code>
-</li>
-<li>html_append: °C</li></ul>
-
-
-
-
-        </dd>
-
-</dl>
 
 <a name="dev"><h1>Entwicklung</h1></a>
 <h2>Widget-Templates</h2>
@@ -252,11 +262,12 @@ SOFTWARE ODER SONSTIGER VERWENDUNG DER SOFTWARE ENTSTANDEN.</p>
               <small>Download</small>
               .tar.gz file
             </a>-->
-          <p class="">Bugreports, Support, Wünsche, Kritik über das <a target="_blank" href="http://homematic-forum.de/forum/viewforum.php?f=48">HomeMatic-Forum</a> </p>
+            <p class="">Bugreports, Support, Wünsche, Kritik über das <a target="_blank" href="http://homematic-forum.de/forum/viewforum.php?f=48">HomeMatic-Forum</a> </p>
+            <p class=""><a target="_blank" href="https://github.com/hobbyquaker/DashUI/wiki/">Dokumentation der DashUI-Widgets</a> </p>
             <p class="">copyright (c) 2013 <a href="https://github.com/hobbyquaker">hobbyquaker</a></p>
             <span style="display:block; width: 100%; border-bottom: 1px solid #275da1; margin-bottom:1em"></span>
             <span style="font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; font-size:16px">nützliches zur UI Gestaltung</span>
-            <ul>
+            <br/><br/><ul>
 
                 <li><a target="_blank" href="http://subtlepatterns.com/">Subtle Patterns</a></li>
                 <li><a target="_blank" href="http://de.floorplanner.com/">Floor Planner</a></li>
@@ -269,7 +280,7 @@ SOFTWARE ODER SONSTIGER VERWENDUNG DER SOFTWARE ENTSTANDEN.</p>
             </ul>
             <span style="display:block; width: 100%; border-bottom: 1px solid #275da1; margin-bottom:1em"></span>
             <span style="font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; font-size:16px">verwandte Projekte</span>
-            <ul>
+            <br/><br/><ul>
                 <li><a target="_blank" href="">jqHomematic</a></li>
                 <li><a target="_blank" href="">WebAPI</a></li>
                 <li><a target="_blank" href="">HQ WebUI</a></li>
