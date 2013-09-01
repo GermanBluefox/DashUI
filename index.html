@@ -104,11 +104,9 @@
 
 
 <ul>
-    <li>Es wird ein Zugang zur CCU via FTP oder SCP benötigt.</li>
-    <li>Addon "WebAPI" installieren: den Ordner "webapi" auf diesem Zip-File <a href="https://github.com/hobbyquaker/WebAPI/archive/master.zip">https://github.com/hobbyquaker/WebAPI/archive/master.zip</a> nach /www/addons/ kopieren.</li>
-    <li>Den Ordner "dashui" aus diesem Zip-File <a href="https://github.com/hobbyquaker/DashUI/archive/master.zip">https://github.com/hobbyquaker/DashUI/archive/master.zip</a> ebenfalls nach /www/addons/ kopieren</li>
-    <li>auf der CCU leeren Ordner "dashui" in /usr/local/addons/ erstellen (hier werden Konfigurationen gespeichert)</li>
-    <li>Mit einem modernen Browser (Chrome, Safari, Firefox) http://ccu/addons/dashui/?edit aufrufen</li>
+    <li>Es wird eine funktionierende <a target="_blank" href="https://github.com/hobbyquaker/ccu.io">CCU.IO</a> Installation vorausgesetzt.</li>
+    <li>Den Ordner "dashui" aus diesem Zip-File <a href="https://github.com/hobbyquaker/DashUI/archive/master.zip">https://github.com/hobbyquaker/DashUI/archive/master.zip</a> in den Ordner www der CCU.IO-Installation kopieren</li>
+    <li>Mit einem modernen Browser (Chrome, Safari, Firefox) http://ccu-io-server:8090/dashui/edit.html aufrufen</li>
     <li>Nun können Widgets und Views hinzugefügt und konfiguriert werden, hier ein einfaches Beispiel um eine Temperatur anzuzeigen:
         <ul>
             <li>Auf den Reiter "Widgets" wechseln</li>
@@ -119,7 +117,6 @@
         </ul>
     </li>
     <li>Widgets werden automatisch aktualisiert sobald der Editor geschlossen wird</li>
-    <li>Man muss manuell über die Buttons "save views on ccu" im Reiter Homematic die Konfiguration auf der CCU sichern. Automatisch gesichert wird nur im "LocalStorage" des Browsers.</li>
 </ul>
 
 
